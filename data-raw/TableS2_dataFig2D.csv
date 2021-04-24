@@ -1,0 +1,97 @@
+﻿sample_ID;order_in_figure_2D;subtype;RB1_hit_1;RB1_hit_1_germline;RB1_hit_2;BCOR_mutation;ARID1A_mutation;MYCN_amplification;1q_gain;16q_loss
+RB1;1;1;nonsense;yes;copy neutral LOH;no;no;no;no;no
+RB2;2;1;missense;yes;copy neutral LOH;no;no;no;no;no
+RB4;3;1;frameshift indel;yes;copy neutral LOH;no;no;no;no;no
+RB11;4;1;nonsense;yes;nonsense;no;no;no;no;no
+RB34;5;1;frameshift indel;yes;copy neutral LOH;no;no;no;no;no
+RB63;6;1;frameshift indel;yes;frameshift indel;no;no;no;no;yes
+RB109;7;1;nonsense;yes;NA;no;no;no;no;no
+RB213;8;1;splice site;yes;copy neutral LOH;no;no;no;no;no
+RB216;9;1;nonsense;yes;copy neutral LOH;no;no;no;no;no
+RB217;10;1;nonsense;yes;NA;no;no;no;no;no
+RB218;11;1;frameshift indel;yes;copy neutral LOH;no;no;no;no;no
+RB219;12;1;missense;yes;nonsense;no;no;no;yes;yes
+RB625;13;1;nonsense;yes;copy neutral LOH;no;no;no;no;no
+RB714;14;1;splice site;yes;copy neutral LOH;no;no;no;no;no
+RB6;15;1;deletion exons 7-17;no;promoter methylation;no;no;no;no;no
+RB9;16;1;nonsense;no;frameshift indel;no;no;no;no;no
+RB10;17;1;deletion 1 allele;no;deletion 1 allele;no;no;no;no;no
+RB24;18;1;NA;no;copy neutral LOH;no;no;no;no;no
+RB25;19;1;nonsense;no;copy neutral LOH;no;no;no;no;no
+RB28;20;1;deletion 1 allele;no;deletion 1 allele;no;no;no;no;no
+RB35;21;1;frameshift indel;no;nonsense;NA;NA;no;no;no
+RB49;22;1;nonsense;no;copy neutral LOH;no;no;no;no;no
+RB50;23;1;deletion 1 allele;no;deletion 1 allele;no;no;no;yes;no
+RB52;24;1;in_frame_indel;no;copy neutral LOH;no;no;no;no;no
+RB203;25;1;deletion 1 allele;no;deletion 1 allele;no;no;no;yes;yes
+RB206;26;1;promoter methylation;no;copy neutral LOH;no;no;no;no;no
+RB603;27;1;nonsense;no;splice site;no;no;no;no;no
+RB634;28;1;frameshift indel;no;NA;no;no;no;no;no
+RB663;29;1;deletion 1 allele;no;deletion 1 allele;no;no;no;no;no
+RB671;30;1;nonsense;no;NA;no;no;no;no;no
+RBsjd9;31;1;nonsense;no;NA;no;no;no;no;no
+RB23;32;1;splice site;NA;copy neutral LOH;no;no;no;no;no
+RB30;33;1;nonsense;NA;copy neutral LOH;no;no;no;no;no
+RB33;34;1;nonsense;NA;nonsense;NA;NA;no;no;yes
+RB40;35;1;nonsense;NA;NA;no;no;no;no;no
+RB44;36;1;NA;NA;NA;NA;NA;no;no;no
+RB47;37;1;NA;NA;NA;NA;NA;no;no;no
+RB221;38;1;NA;NA;NA;NA;NA;no;no;no
+RB22;39;2;frameshift indel;yes;NA;NA;NA;yes;no;no
+RB55;40;2;nonsense;yes;promoter methylation;no;no;no;yes;yes
+RB590;41;2;frameshift indel;yes;copy neutral LOH;no;no;no;yes;no
+RB707;42;2;missense;yes;NA;no;no;no;yes;no
+RB716;43;2;nonsense;yes;copy neutral LOH;frameshift_indel;no;no;yes;yes
+RBsjd2;44;2;splice site;yes;NA;frameshift_indel;no;yes;no;no
+RB3;45;2;nonsense;no;copy neutral LOH;no;no;no;yes;yes
+RB7;46;2;NA;no;deletion 1 allele;no;no;no;yes;yes
+RB13;47;2;nonsense;no;copy neutral LOH;no;no;yes;no;no
+RB14;48;2;nonsense;no;copy neutral LOH;no;no;yes;no;no
+RB15;49;2;nonsense;no;splice site;no;no;yes;yes;yes
+RB21;50;2;nonsense;no;copy neutral LOH;no;nonsense;no;yes;yes
+RB27;51;2;nonsense;no;copy neutral LOH;no;no;no;no;yes
+RB32;52;2;frameshift indel;no;promoter methylation;no;no;no;yes;yes
+RB37;53;2;deletion exons 3-27;no;NA;no;no;no;yes;no
+RB38;54;2;nonsense;no;copy neutral LOH;frameshift_indel;no;no;yes;yes
+RB39;55;2;nonsense;no;copy neutral LOH;no;no;no;yes;yes
+RB41;56;2;nonsense;no;frameshift indel;frameshift_indel;no;no;yes;no
+RB42;57;2;splice site;no;copy neutral LOH;no;no;no;yes;yes
+RB43;58;2;deletion exons 7-12;no;deletion exons 18-27;NA;NA;no;yes;yes
+RB45;59;2;splice site;no;copy neutral LOH;no;no;no;yes;yes
+RB46;60;2;nonsense;no;copy neutral LOH;no;no;no;yes;yes
+RB48;61;2;deletion 1 allele;no;deletion 1 allele;no;no;no;yes;yes
+RB51;62;2;nonsense;no;splice site;no;no;no;yes;no
+RB54;63;2;frameshift indel;no;copy neutral LOH;no;no;no;yes;yes
+RB56;64;2;frameshift indel;no;copy neutral LOH;no;no;no;yes;yes
+RB58;65;2;NA;no;NA;no;no;no;yes;yes
+RB59;66;2;splice site;no;nonsense;no;no;no;yes;yes
+RB62;67;2;nonsense;no;nonsense;no;no;no;yes;yes
+RB64;68;2;nonsense;no;frameshift indel;no;no;no;yes;yes
+RB111;69;2;splice site;no;copy neutral LOH;no;no;no;yes;yes
+RB200;70;2;splice site;no;copy neutral LOH;no;no;no;yes;yes
+RB202;71;2;frameshift indel;no;splice site;no;no;no;yes;yes
+RB205;72;2;promoter methylation;no;copy neutral LOH;nonsense;no;no;yes;yes
+RB209;73;2;nonsense;no;copy neutral LOH;no;no;no;yes;yes
+RB211;74;2;frameshift indel;no;NA;no;no;no;yes;yes
+RB212;75;2;deletion 1 allele;no;deletion 1 allele;NA;NA;no;no;no
+RB215;76;2;NA;no;deletion 1 allele;no;no;yes;no;no
+RB220;77;2;NA;no;NA;no;no;no;no;no
+RB222;78;2;no;no;no;no;no;yes;no;no
+RB223;79;2;frameshift indel;no;copy neutral LOH;no;no;no;yes;no
+RB593;80;2;deletion 1 allele;no;deletion 1 allele;no;no;no;yes;no
+RB617;81;2;nonsense;no;deletion 1 allele;frameshift_indel;no;no;yes;yes
+RB632;82;2;nonsense;no;copy neutral LOH;no;no;no;no;yes
+RB635;83;2;NA;no;deletion 1 allele;no;frameshift_indel;no;yes;no
+RB647;84;2;nonsense;no;NA;no;no;no;no;yes
+RB659;85;2;nonsense;no;deletion 1 allele;frameshift_indel;no;yes;no;no
+RB704;86;2;splice site;no;copy neutral LOH;frameshift_indel;no;no;yes;yes
+RB715;87;2;frameshift indel;no;copy neutral LOH;frameshift_indel;no;no;yes;yes
+RBsjd7;88;2;NA;no;NA;no;no;yes;no;no
+RBsjd8;89;2;deletion 1 allele;no;NA;no;no;no;yes;no
+RB31;90;2;nonsense;NA;copy neutral LOH;no;no;no;yes;yes
+RB57;91;2;NA;NA;deletion 1 allele;no;no;no;yes;yes
+RB224;92;2;nonsense;NA;NA;no;no;yes;no;no
+RB225;93;2;splice site;NA;NA;no;no;no;yes;no
+RB300;94;2;NA;NA;copy neutral LOH;no;no;no;no;yes
+RB304;95;2;NA;NA;NA;no;no;no;yes;yes
+RB598;96;2;NA;NA;NA;no;no;no;yes;yes
