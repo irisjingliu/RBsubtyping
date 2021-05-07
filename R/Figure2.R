@@ -394,7 +394,7 @@ Figure2abcd <- function(){
 }
 
 
-#' Plot Figure 2e heatmap of differential methylated CpGs
+#' Plot Figure 2efg heatmap of differential methylated CpGs
 #' @export
 Figure2efg_Meth_FigureS2_Meth <- function(){
   require(gplots)
