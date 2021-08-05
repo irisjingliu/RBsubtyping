@@ -387,6 +387,179 @@ Figure2abcd <- function(){
   dev.print(png,filename = "boxplot_instability_genomic_3gp.png",res=360,width=2400,height=2400)
 
 
+  ##############################
+  #### PartC
+  ############# NUMBER OF MUTATIONS #######################
+  load(file ="annot_fig2_Part_C.RData")
+
+  ### Statistiques ....
+  # library(ggpubr)
+  # ### 2 gp
+  # compare_means(nb_mutations ~ groupe_final, data = number_mutations_groupe)
+  # # A tibble: 1 x 8
+  # .y.          group1 group2           p       p.adj p.format p.signif method
+  # <chr>        <chr>  <chr>        <dbl>       <dbl> <chr>    <chr>    <chr>
+  #   1 nb_mutations 2      1      0.000000810 0.000000810 8.1e-07  ****     Wilcoxon
+  # ### 3 gp
+  # compare_means(nb_mutations ~ groupe_final_MYCN, data = number_mutations_groupe)
+  # # A tibble: 3 x 8
+  # .y.          group1 group2          p     p.adj p.format p.signif method
+  # <chr>        <chr>  <chr>       <dbl>     <dbl> <chr>    <chr>    <chr>
+  #   1 nb_mutations 2      1      0.00000354 0.0000106 3.5e-06  ****     Wilcoxon
+  # 2 nb_mutations 2      3      0.775      0.775     0.775    ns       Wilcoxon
+  # 3 nb_mutations 1      3      0.00105    0.00210   0.001    **       Wilcoxon
+
+
+  nb_c1 <- length(number_mutations_groupe[which(number_mutations_groupe$groupe_final == "1"),"nb_mutations"] )
+  nb_c2 <- length(number_mutations_groupe[which(number_mutations_groupe$groupe_final == "2"),"nb_mutations"] )
+  nb_c2_b <- length(number_mutations_groupe[which(number_mutations_groupe$groupe_final_MYCN == "2"),"nb_mutations"] )
+  nb_c3 <- length(number_mutations_groupe[which(number_mutations_groupe$groupe_final_MYCN == "3"),"nb_mutations"] )
+
+
+  number_mutations_groupe[which(number_mutations_groupe$groupe_final_MYCN %in% c("2","3")),]
+  write.table(number_mutations_groupe,file="number_mutations_groupes.csv",sep = ";",col.names = NA)
+
+  dev.new()
+  par(mfrow=c(2,2))
+
+  boxplot(x=1:5,xlim=c(0,6),ylim=c(0,8),
+          horizontal=TRUE,outline=F,axes=F,boxfill=rgb(1, 1, 1, alpha=1), border=rgb(1, 1, 1, alpha=1)) #invisible boxes
+
+  boxplot(number_mutations_groupe[,"nb_mutations"] ~ as.numeric(number_mutations_groupe[,"groupe_final"]),
+          col=c("goldenrod","cornflowerblue"),whiskcol="black",staplecol="black",frame=FALSE,
+          horizontal=TRUE,cex=0.7,names=c("C1","C2"),col.axis="black",las=2,outline=F,axes=T,at=c(5,4), add=TRUE)
+
+  stripchart(number_mutations_groupe[,"nb_mutations"] ~ as.numeric(number_mutations_groupe[,"groupe_final"]),
+             vertical = FALSE, method = "jitter", jitter = 0.5,
+             pch = 20, col="black", at=c(5,4),cex= 0.7,
+             add = TRUE)
+
+  boxplot(number_mutations_groupe[which(number_mutations_groupe$groupe_final_MYCN %in% c("2","3")),"nb_mutations"] ~ number_mutations_groupe[which(number_mutations_groupe$groupe_final_MYCN  %in% c("2","3")),"groupe_final_MYCN"],
+          col=c("cornflowerblue","darkred"),whiskcol=c("black","black"),staplecol=c("black","black"),boxcol=c("black","black"),outcol=c("black","black"),outbg=c("black","black"),
+          frame=FALSE,xaxt="n",
+          horizontal=TRUE,cex=1,names=c("C2_no_M","C2_MYCN_Amp"),outline=F,axes=T,at=c(2,1),las=2, add=TRUE)
+
+  stripchart(number_mutations_groupe[which(number_mutations_groupe$groupe_final_MYCN %in% c("2","3")),"nb_mutations"] ~ number_mutations_groupe[which(number_mutations_groupe$groupe_final_MYCN  %in% c("2","3")),"groupe_final_MYCN"],
+             vertical = FALSE, method = "jitter", jitter = 0.5,
+             pch = 20, col="black",  at=c(2,1),cex= 0.7,
+             add = TRUE)
+
+  setwd(inputFolderWork)
+  dev.print(png,filename = "fig_2_C_3gp.png",res=360,width=2400,height=2400)
+
+
+  ###############################
+  #### Part D
+  ###############################
+  dir_output <- "./Downloads"
+  #### data
+  DataFig2d <- read.table("/Users/jing/Downloads/TableS2_DataFig2d.csv", sep = ";", header = T)
+
+  str(DataFig2d)
+
+  #### types of mutations for hit 1:
+  unique(DataFig2d$RB1.hit.1)
+  # [1] "nonsense"             "missense"             "frameshift indel"     "splice site"          "deletion exons 7-17"
+  # [6] "deletion 1 allele"    NA                     "in_frame_indel"       "promoter methylation" "deletion exons 3-27"
+  # [11] "deletion exons 7-12"  "no"
+
+  # deletion 1 allele/some exons --> deletion
+  DataFig2d[grep("deletion", DataFig2d$RB1.hit.1), ]$RB1.hit.1 <- "deletion"
+  unique(DataFig2d$RB1.hit.1)
+
+  # in_frame_indel --> in-frame indel
+  DataFig2d[grep("in_frame_indel", DataFig2d$RB1.hit.1), ]$RB1.hit.1 <- "in-frame indel"
+  unique(DataFig2d$RB1.hit.1)
+
+  # NA --> "NA"
+  DataFig2d[is.na(DataFig2d$RB1.hit.1), ]$RB1.hit.1 <- "NA"
+  unique(DataFig2d$RB1.hit.1)
+
+  #### hit 1 germline:
+  # NA --> "NA"
+  DataFig2d[is.na(DataFig2d$RB1.hit.1.germline), ]$RB1.hit.1.germline <- "NA"
+  unique(DataFig2d$RB1.hit.1.germline)
+
+  #### types of mutations for hit 2:
+  unique(DataFig2d$RB1.hit.2)
+  # [1] "copy neutral LOH"     "nonsense"             "frameshift indel"     NA                     "promoter methylation"
+  # [6] "deletion 1 allele"    "splice site"          "deletion exons 18-27" "no"
+
+  # deletion 1 allele/some exons --> deletion
+  DataFig2d[grep("deletion", DataFig2d$RB1.hit.2), ]$RB1.hit.2 <- "deletion"
+  unique(DataFig2d$RB1.hit.2)
+
+  # NA --> "NA"
+  DataFig2d[is.na(DataFig2d$RB1.hit.2), ]$RB1.hit.2 <- "NA"
+  unique(DataFig2d$RB1.hit.2)
+
+  #### BCOR.mutation:
+  unique(DataFig2d$BCOR.mutation)
+
+  # frameshift_indel --> frameshift indel
+  DataFig2d[which(DataFig2d$BCOR.mutation == "frameshift_indel"), ]$BCOR.mutation <- "frameshift indel"
+
+  # NA --> "NA"
+  DataFig2d[is.na(DataFig2d$BCOR.mutation), ]$BCOR.mutation <- "NA"
+  unique(DataFig2d$BCOR.mutation)
+
+  #### ARID1A.mutation:
+  unique(DataFig2d$ARID1A.mutation)
+
+  # frameshift_indel --> frameshift indel
+  DataFig2d[which(DataFig2d$ARID1A.mutation == "frameshift_indel"), ]$ARID1A.mutation <- "frameshift indel"
+
+  # NA --> "NA"
+  DataFig2d[is.na(DataFig2d$ARID1A.mutation), ]$ARID1A.mutation <- "NA"
+  unique(DataFig2d$ARID1A.mutation)
+
+
+
+  #### Use ComplexeHatmap to plot
+  library(ComplexHeatmap)
+  library(circlize)
+
+  str(DataFig2d)
+
+  m <- DataFig2d[, c("MYCN.amplification", "X1q.gain", "X16q.loss")]
+  m$MYCN.amplification <- ifelse(m$MYCN.amplification == "yes", 2, 0)
+  m$X1q.gain <- ifelse(m$X1q.gain == "yes", 1, 0)
+  m$X16q.loss <- ifelse(m$X16q.loss == "yes", -1, 0)
+
+  df.annot <-  DataFig2d[, c("subtype", "RB1.hit.1", "RB1.hit.1.germline", "RB1.hit.2", "BCOR.mutation", "ARID1A.mutation")]
+  df.annot$subtype <- paste("Subtype", df.annot$subtype, sep = " ")
+  ha <- HeatmapAnnotation(# df = df.annot,
+    Subtype = df.annot$subtype,
+    Mutation = as.matrix(df.annot[, c("RB1.hit.1", "RB1.hit.1.germline", "RB1.hit.2", "BCOR.mutation", "ARID1A.mutation")]),
+
+    col = list(Subtype = c("Subtype 1" = "goldenrod", "Subtype 2" = "cornflowerblue"),
+
+               Mutation = c("yes" = "black", "no" = "grey82", "NA" = "white",
+                            "nonsense" = "salmon", "missense" = "green", "frameshift indel" = "darkslategray1",
+                            "splice site" = "yellow", "deletion" = "blue", "in-frame indel" = "plum",
+                            "promoter methylation" = "maroon4", "copy neutral LOH" = "purple" )
+    ),
+
+    gp = gpar(col = "grey80"),
+    gap = unit(c(1,0,0,0,0,0), "mm"),
+    simple_anno_size = unit(5, "mm"),
+    border = TRUE
+  )
+
+  col_fun = colorRamp2(c(-2, -1, 0, 1, 2), c("darkblue", "skyblue3", "grey", "indianred1", "darkred"))
+  h <- Heatmap(t(m), cluster_rows = F, cluster_columns = F,
+               column_split = df.annot$subtype, column_gap = unit(2, "mm"),
+               height = unit(15, "mm"), width = unit(18, "cm"),
+               col = col_fun,
+               rect_gp = gpar(col = "grey80"),
+               border = T,
+               top_annotation = ha
+  )
+  print(h)
+  setwd(dir_output)
+  dev.print(png, "Fig2d_ComplexeHeatmap.png", res = 300, height = 1500, width = 4000)
+
+
 
 
 
